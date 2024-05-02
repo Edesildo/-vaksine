@@ -3,7 +3,7 @@ package dev.edesildo.vaksine.application;
 import dev.edesildo.vaksine.application.usecase.criarvacina.model.SolicitacaoCadastroVacina;
 import dev.edesildo.vaksine.domain.Vacina;
 
-interface RepositorioVacinas {
+public interface RepositorioVacinas {
 
     boolean existe(String nome, String nomeFabricante);
 
