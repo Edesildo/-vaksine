@@ -2,6 +2,7 @@ package dev.edesildo.vaksine.application;
 
 import dev.edesildo.vaksine.application.usecase.criarvacina.VacinaExistenteException;
 import dev.edesildo.vaksine.application.usecase.criarvacina.model.SolicitacaoCadastroVacina;
+import dev.edesildo.vaksine.domain.Vacina;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -18,8 +19,8 @@ class CadastrarVacinaUseCaseTest {
         when(repositorioVacinas.existe("nomeA", "fabricanteA"))
                 .thenReturn(true);
 
-        final SolicitacaoCadastroVacina solicitacaoCadastroVacina =
-                new SolicitacaoCadastroVacina("nomeA", "fabricanteA", "desc");
+        final Vacina solicitacaoCadastroVacina =
+                new Vacina("nomeA", "fabricanteA", "desc");
 
         assertThrows(VacinaExistenteException.class, () -> subject.processar(solicitacaoCadastroVacina));
     }
@@ -29,8 +30,8 @@ class CadastrarVacinaUseCaseTest {
         when(repositorioVacinas.existe("nomeA", "fabricanteA"))
                 .thenReturn(false);
 
-        final SolicitacaoCadastroVacina solicitacaoCadastroVacina =
-                new SolicitacaoCadastroVacina("nomeA", "fabricanteA", "desc");
+        final Vacina solicitacaoCadastroVacina =
+                new Vacina("nomeA", "fabricanteA", "desc");
 
         assertDoesNotThrow(() -> subject.processar(solicitacaoCadastroVacina));
 
